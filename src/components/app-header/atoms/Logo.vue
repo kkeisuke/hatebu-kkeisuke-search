@@ -1,19 +1,19 @@
 <template>
-  <Content class="Home">
-    <router-view></router-view>
-  </Content>
+  <div class="Logo">kkeisuke's はてなブックマーク</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Home'
+  name: 'Logo'
 })
 </script>
 
 <style lang="scss" scoped>
-.Home {
-  padding: 10px;
+.Logo {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
 }
 </style>
