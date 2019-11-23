@@ -45,11 +45,10 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "@vue/prettier",
       "@vue/typescript"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     },
@@ -63,7 +62,31 @@
           "jest": true
         }
       }
-    ]
+    ],
+    "rules": {
+      "vue/array-bracket-spacing": "error",
+      "vue/arrow-spacing": "error",
+      "vue/block-spacing": "error",
+      "vue/brace-style": "error",
+      "vue/camelcase": "error",
+      "vue/component-name-in-template-casing": "error",
+      "vue/eqeqeq": "error",
+      "vue/key-spacing": "error",
+      "vue/match-component-file-name": "error",
+      "vue/object-curly-spacing": "error",
+      "vue/script-indent": "error",
+      "vue/space-infix-ops": "error",
+      "vue/space-unary-ops": "error",
+      "vue/v-on-function-call": "error"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 200,
+    "tabWidth": 2,
+    "endOfLine": "lf",
+    "trailingComma": "none"
   },
   "postcss": {
     "plugins": {
