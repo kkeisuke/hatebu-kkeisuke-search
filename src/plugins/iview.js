@@ -7,4 +7,4 @@ locale(lang)
 
 Vue.component('Button', Button)
 
-import 'view-design/dist/styles/iview.css'
+import '../styles/iview-variables.less'
