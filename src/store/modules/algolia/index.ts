@@ -1,0 +1,17 @@
+import actions from './actions'
+import mutations from './mutations'
+import getters from './getters'
+
+import { AlgoliaState } from './algolia'
+
+const state: AlgoliaState = {
+  searchResults: []
+}
+
+export default {
+  namespaced: true,
+  state,
+  actions,
+  mutations,
+  getters
+}
