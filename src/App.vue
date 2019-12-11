@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AppHeader from '@/components/app-header/organisms/AppHeader.vue'
+import AppHeader from '@/components/app-header/AppHeader.vue'
 
 export default Vue.extend({
   name: 'App',

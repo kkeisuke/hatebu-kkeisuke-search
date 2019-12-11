@@ -1,5 +1,5 @@
 <template>
-  <div class="Logo">kkeisuke's はてなブックマーク</div>
+  <h1 class="Logo"></h1>
 </template>
 
 <script lang="ts">
@@ -10,9 +10,19 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+@import '~@/styles/iview-variables.less';
+
 .Logo {
-  font-size: 16px;
+  &::before {
+    content: "kkeisuke's はてなブックマーク検索";
+  }
+  @media screen and (max-width: @screen-sm-max) {
+    &::before {
+      content: "kkeisuke's はてなブ検索";
+    }
+  }
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
 }

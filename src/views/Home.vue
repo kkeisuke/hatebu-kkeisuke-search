@@ -1,7 +1,9 @@
 <template>
-  <Content class="Home">
-    <router-view></router-view>
-  </Content>
+  <Layout class="Home">
+    <Content class="container">
+      <router-view />
+    </Content>
+  </Layout>
 </template>
 
 <script lang="ts">
@@ -14,6 +16,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .Home {
-  padding: 10px;
+  .container {
+    padding: 30px 20px 20px;
+  }
 }
 </style>
