@@ -20,7 +20,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
 #App {
   min-height: 100vh;
-  height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

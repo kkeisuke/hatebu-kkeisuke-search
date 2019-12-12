@@ -45,7 +45,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .IconLink {
-  vertical-align: middle;
   .label {
     margin-left: 2px;
   }
