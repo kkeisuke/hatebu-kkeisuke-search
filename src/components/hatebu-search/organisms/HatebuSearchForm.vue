@@ -3,7 +3,7 @@
   <Form id="HatebuSearchForm" class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
     <FormItem>
       <!-- element-id for E2E test -->
-      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" size="large" placeholder="Enter something...">
+      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" placeholder="Enter something...">
         <Button slot="append" html-type="submit"><AlgoliaLogo /></Button>
       </Input>
     </FormItem>
@@ -28,4 +28,14 @@ export default createComponent({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="less" scoped>
+@import '~@/styles/iview-variables.less';
+
+.HatebuSearchForm {
+  /deep/ #searchBox {
+    @media screen and (max-width: @screen-sm-max) {
+      font-size: 16px;
+    }
+  }
+}
+</style>
