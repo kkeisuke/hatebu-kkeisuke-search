@@ -3,7 +3,7 @@
   <Form id="HatebuSearchForm" class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
     <FormItem>
       <!-- element-id for E2E test -->
-      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" placeholder="Enter something...">
+      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" size="large" placeholder="Enter something...">
         <Button slot="append" html-type="submit"><AlgoliaLogo /></Button>
       </Input>
     </FormItem>

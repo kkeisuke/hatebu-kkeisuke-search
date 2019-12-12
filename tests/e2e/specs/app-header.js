@@ -14,7 +14,7 @@ describe('app header viewport check', () => {
       const win = $els[0].ownerDocument.defaultView
       const before = win.getComputedStyle($els[0], 'before')
       const contentValue = before.getPropertyValue('content')
-      expect(contentValue).to.eq('"kkeisuke\'s はてなブ検索"')
+      expect(contentValue).to.eq('"kkeisuke\'s はてブ検索"')
     })
   })
 

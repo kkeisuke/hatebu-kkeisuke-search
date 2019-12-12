@@ -20,7 +20,7 @@ export default Vue.extend({
   }
   @media screen and (max-width: @screen-sm-max) {
     &::before {
-      content: "kkeisuke's はてなブ検索";
+      content: "kkeisuke's はてブ検索";
     }
   }
   font-size: 14px;
