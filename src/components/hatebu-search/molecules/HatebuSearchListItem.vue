@@ -44,7 +44,8 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .HatebuSearchListItem {
-  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   .extra {
     & + .extra {
