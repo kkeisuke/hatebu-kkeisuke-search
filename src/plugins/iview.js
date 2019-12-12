@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { Layout, Content, Header, Drawer, Form, FormItem, Input, Button, Card, Icon, List } from 'view-design'
+import { Layout, Content, Header, Drawer, Form, FormItem, Input, Button, Card, Icon, List, BackTop } from 'view-design'
 import lang from 'view-design/dist/locale/ja-JP'
 import { locale } from 'view-design'
 
@@ -17,5 +17,6 @@ Vue.component('Card', Card)
 Vue.component('Icon', Icon)
 Vue.component('List', List)
 Vue.component('ListItem', List.Item)
+Vue.component('BackTop', BackTop)
 
 import '../styles/iview-variables.less'

@@ -2,6 +2,7 @@
   <Layout class="Home">
     <Content class="container">
       <router-view />
+      <BackTop :height="200" />
     </Content>
   </Layout>
 </template>
