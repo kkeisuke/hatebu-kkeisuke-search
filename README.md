@@ -1,5 +1,7 @@
 # hatebu-kkeisuke-search
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/faf17122-1dc8-4f69-ad6f-1db60d215577/deploy-status)](https://app.netlify.com/sites/hatebu-kkeisuke-search/deploys) ![test](https://github.com/kkeisuke/hatebu-kkeisuke-search/workflows/test/badge.svg)
+
 ## Project setup
 ```
 npm install
