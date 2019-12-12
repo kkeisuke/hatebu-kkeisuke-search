@@ -4,7 +4,11 @@ import { AlgoliaState, AlgoliaAction, AlgoliaGetter, AlgoliaMutation } from './a
 
 const actions: Actions<AlgoliaState, AlgoliaAction, AlgoliaGetter, AlgoliaMutation> = {
   async search({ commit }, query) {
-    const data = await searchAlgolia(query)
+    if (!query.trim()) {
+      commit('SET_SEARCH_RESULTS')
+      return
+    }
+    const data = await searchAlgolia(query.trim())
     commit('SET_SEARCH_RESULTS', data)
   }
 }

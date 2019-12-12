@@ -19,6 +19,14 @@ describe('store algolia', () => {
   it('parse raw data', () => {
     const result = store.getters['algolia/searchResults']
     const content = store.getters['algolia/parseRawData'](freeword, result[0])
+    const empty = store.getters['algolia/parseRawData'](' ', result[0])
     expect(content).toMatch(/^#### /)
+    expect(empty).toEqual('')
+  })
+
+  it('search empty freeword', async () => {
+    await store.dispatch('algolia/search', ' ')
+    const result = store.getters['algolia/searchResults']
+    expect(result.length).toEqual(0)
   })
 })

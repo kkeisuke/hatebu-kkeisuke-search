@@ -7,8 +7,12 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
   },
   parseRawData() {
     return (freeword: string, searchResult: SearchResult) => {
+      if (!freeword.trim()) return ''
       // 複数のフリーワード
-      const freewords = freeword.replace('　', ' ').split(' ')
+      const freewords = freeword
+        .trim()
+        .replace('　', ' ')
+        .split(' ')
       // マークダウンを段落ごとに処理
       const contents = searchResult.content
         .split('\n\n')
