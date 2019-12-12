@@ -3,7 +3,7 @@ name: test
 on: [push]
 
 jobs:
-  unit:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -13,15 +13,13 @@ jobs:
         node-version: '10.x'
     - name: Install Dependencies
       run: npm ci
-    - name: unit test
+    - name: test
       env: 
         VUE_APP_ALGOLIA_APPLICATION: ${{ secrets.VUE_APP_ALGOLIA_APPLICATION }}
         VUE_APP_ALGOLIA_API_KEY: ${{ secrets.VUE_APP_ALGOLIA_API_KEY }}
         VUE_APP_ALGOLIA_INDEX: ${{ secrets.VUE_APP_ALGOLIA_INDEX }}
         VUE_APP_BLOG_URL: ${{ secrets.VUE_APP_BLOG_URL }}
         VUE_APP_GITHUB_URL: ${{ secrets.VUE_APP_GITHUB_URL }}
-      run: npm run test:unit
-    - name: e2e test
-      uses: cypress-io/github-action@v1
-      with:
-        start: npm test:e2e
+      run: |
+        npm run test:unit
+        npm run test:e2e --headless
