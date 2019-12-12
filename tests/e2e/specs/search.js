@@ -10,6 +10,8 @@ describe('search', () => {
 
     cy.get('#searchBox').type(freeword)
     cy.get('#HatebuSearchForm').submit()
-    cy.get('.HatebuSearchListItem').first().contains(freeword)
+    cy.get('.HatebuSearchListItem')
+      .first()
+      .contains(freeword)
   })
 })
