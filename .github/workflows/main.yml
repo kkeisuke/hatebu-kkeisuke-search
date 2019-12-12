@@ -14,7 +14,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     - name: test
-      env: 
+      env:
         VUE_APP_ALGOLIA_APPLICATION: ${{ secrets.VUE_APP_ALGOLIA_APPLICATION }}
         VUE_APP_ALGOLIA_API_KEY: ${{ secrets.VUE_APP_ALGOLIA_API_KEY }}
         VUE_APP_ALGOLIA_INDEX: ${{ secrets.VUE_APP_ALGOLIA_INDEX }}
@@ -22,4 +22,4 @@ jobs:
         VUE_APP_GITHUB_URL: ${{ secrets.VUE_APP_GITHUB_URL }}
       run: |
         npm run test:unit
-        npm run test:e2e --headless
+        npm run test:e2e:ci
