@@ -1,5 +1,6 @@
 <template>
-  <h1 class="Logo"></h1>
+  <!-- id for E2E test -->
+  <h1 id="Logo" class="Logo"></h1>
 </template>
 
 <script lang="ts">

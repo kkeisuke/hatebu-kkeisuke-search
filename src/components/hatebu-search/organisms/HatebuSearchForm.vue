@@ -1,7 +1,9 @@
 <template>
-  <Form class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
+  <!-- id for E2E test -->
+  <Form id="HatebuSearchForm" class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
     <FormItem>
-      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" placeholder="Enter something...">
+      <!-- element-id for E2E test -->
+      <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" placeholder="Enter something...">
         <Button slot="append" html-type="submit"><AlgoliaLogo /></Button>
       </Input>
     </FormItem>
