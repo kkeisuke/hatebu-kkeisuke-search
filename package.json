@@ -13,7 +13,7 @@
   "dependencies": {
     "@vue/composition-api": "^0.3.4",
     "algoliasearch": "^3.35.1",
-    "core-js": "^3.4.7",
+    "core-js": "^3.4.8",
     "dompurify": "^2.0.7",
     "marked": "^0.7.0",
     "register-service-worker": "^1.6.2",
@@ -23,7 +23,7 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@types/algoliasearch": "^3.34.7",
     "@types/dompurify": "^2.0.0",
     "@types/jest": "^24.0.11",
