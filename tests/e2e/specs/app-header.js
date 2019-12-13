@@ -11,10 +11,7 @@ describe('app header viewport check', () => {
     cy.get('.menuButton').should('be.visible')
     cy.get('.IconLinks').should('not.be.visible')
     cy.get('#Logo').then($els => {
-      const win = $els[0].ownerDocument.defaultView
-      const before = win.getComputedStyle($els[0], 'before')
-      const contentValue = before.getPropertyValue('content')
-      expect(contentValue).to.eq('"kkeisuke\'s はてブ検索"')
+      expect(getPseudoElementStyle($els[0], 'before', 'content')).to.eq('"kkeisuke\'s はてブ検索"')
     })
   })
 
@@ -24,10 +21,11 @@ describe('app header viewport check', () => {
     cy.get('.menuButton').should('not.be.visible')
     cy.get('.IconLinks').should('be.visible')
     cy.get('#Logo').then($els => {
-      const win = $els[0].ownerDocument.defaultView
-      const before = win.getComputedStyle($els[0], 'before')
-      const contentValue = before.getPropertyValue('content')
-      expect(contentValue).to.eq('"kkeisuke\'s はてなブックマーク検索"')
+      expect(getPseudoElementStyle($els[0], 'before', 'content')).to.eq('"kkeisuke\'s はてなブックマーク検索"')
     })
   })
 })
+
+function getPseudoElementStyle(el, pseudoEl, style) {
+  return el.ownerDocument.defaultView.getComputedStyle(el, pseudoEl).getPropertyValue(style)
+}

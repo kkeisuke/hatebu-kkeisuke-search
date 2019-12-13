@@ -5,13 +5,25 @@ describe('search', () => {
     cy.visit('/')
   })
 
+  Cypress.Commands.add('search', freeword => {
+    cy.get('#searchBox')
+      .clear()
+      .type(`${freeword}{enter}`)
+  })
+
   it('input freeword and search', () => {
     const freeword = 'vue'
 
-    cy.get('#searchBox').type(freeword)
-    cy.get('#HatebuSearchForm').submit()
+    cy.search(freeword)
     cy.get('.HatebuSearchListItem')
       .first()
       .contains(freeword)
+  })
+
+  it('input empty freeword and search', () => {
+    const freeword = '　'
+
+    cy.search(freeword)
+    cy.get('.HatebuSearchListItem').should('have.length', 0)
   })
 })

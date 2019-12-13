@@ -1,6 +1,5 @@
 <template>
-  <!-- id for E2E test -->
-  <Form id="HatebuSearchForm" class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
+  <Form class="HatebuSearchForm" @submit.native.prevent="hatebuSearch.search">
     <FormItem>
       <!-- element-id for E2E test -->
       <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" placeholder="Enter something...">
