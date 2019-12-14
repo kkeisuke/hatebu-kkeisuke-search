@@ -13,6 +13,10 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
         .trim()
         .replace('　', ' ')
         .split(' ')
+
+      const regExp = new RegExp(`${freewords.join('|')}`, 'ig')
+      const replaced = '`$&`'
+
       // マークダウンを段落ごとに処理
       const contents = searchResult.content
         .split('\n\n')
@@ -24,17 +28,17 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
         })
         .map(paragraph => {
           // 段落を行ごとに分割して、含まれているフリーワードを code タグに置換
-          const paragraphs = paragraph.split('\n').filter(row => Boolean(row))
-          const regExp = new RegExp(`${freewords.join('|')}`, 'ig')
-          const replaced = '`$&`'
+          const lines = paragraph.trim().split('\n')
           // タイトル
-          paragraphs[0] = paragraphs[0].replace(regExp, replaced)
+          lines[0] = lines[0].replace(regExp, replaced)
+          // URL
+          lines[1] = decodeURIComponent(lines[1])
           // コメント
-          if (paragraphs[3]) {
-            paragraphs[3] = paragraphs[3].replace(regExp, replaced)
+          if (lines[3]) {
+            lines[3] = lines[3].replace(regExp, replaced)
           }
           // 再び段落に戻す
-          return paragraphs.join('\n')
+          return lines.join('\n')
         })
       // 複数の段落をまとめて返す
       return contents.join('\n\n')

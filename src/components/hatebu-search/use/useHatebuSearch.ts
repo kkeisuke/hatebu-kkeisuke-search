@@ -14,6 +14,7 @@ export const useHatebuSearch = (refs: SetupContext['refs']) => {
 
   async function search() {
     store.dispatch('hatebuSearch/setFreeword', param.freeword)
+    store.dispatch('algolia/reset')
     try {
       LoadingBar.start()
       await store.dispatch('algolia/search', store.getters['hatebuSearch/freeword'])

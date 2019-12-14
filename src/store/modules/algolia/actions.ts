@@ -10,6 +10,9 @@ const actions: Actions<AlgoliaState, AlgoliaAction, AlgoliaGetter, AlgoliaMutati
     }
     const data = await searchAlgolia(query.trim())
     commit('SET_SEARCH_RESULTS', data)
+  },
+  reset({ commit }) {
+    commit('SET_SEARCH_RESULTS')
   }
 }
 

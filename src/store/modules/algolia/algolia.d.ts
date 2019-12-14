@@ -18,10 +18,12 @@ export interface AlgoliaMutation {
 
 export interface AlgoliaAction {
   search: string
+  reset: undefined
 }
 
 export interface RootAlgoliaAction {
   'algolia/search': AlgoliaAction['search']
+  'algolia/reset': AlgoliaAction['search']
 }
 
 export type SearchResult = {
