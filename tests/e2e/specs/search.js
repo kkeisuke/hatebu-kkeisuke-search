@@ -13,11 +13,12 @@ describe('search', () => {
 
   it('input freeword and search', () => {
     const freeword = 'vue'
+    const regexp = new RegExp(freeword, 'i')
 
     cy.search(freeword)
     cy.get('.HatebuSearchListItem')
       .first()
-      .contains(freeword)
+      .contains(regexp)
   })
 
   it('input empty freeword and search', () => {
