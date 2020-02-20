@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import { useSubMenu } from '@/components/app-header/use/useSubMenu'
 import IconLink from '@/components/common/atoms/IconLink.vue'
 
-export default createComponent({
+export default defineComponent({
   name: 'IconLinks',
   components: {
     IconLink

@@ -12,10 +12,10 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import { useSubMenu } from '@/components/app-header/use/useSubMenu'
 
-export default createComponent({
+export default defineComponent({
   name: 'SubSideMenu',
   setup() {
     return {

@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import { defineComponent } from '@vue/composition-api'
 import AlgoliaLogo from '@/components/common/atoms/AlgoliaLogo.vue'
 import { useHatebuSearch } from '../use/useHatebuSearch'
 
-export default createComponent({
+export default defineComponent({
   name: 'HatebuSearchForm',
   components: {
     AlgoliaLogo
