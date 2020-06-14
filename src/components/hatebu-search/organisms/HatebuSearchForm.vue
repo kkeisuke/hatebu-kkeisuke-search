@@ -3,7 +3,9 @@
     <FormItem>
       <!-- element-id for E2E test -->
       <Input ref="searchBox" v-model="hatebuSearch.param.freeword" element-id="searchBox" placeholder="Enter something...">
-        <Button slot="append" html-type="submit"><AlgoliaLogo /></Button>
+        <template v-slot:append>
+          <Button html-type="submit"><AlgoliaLogo /></Button>
+        </template>
       </Input>
     </FormItem>
   </Form>

@@ -1,6 +1,9 @@
 <template>
   <div class="HatebuSearchList">
-    <HatebuSearchListItem v-for="result in searchResults" :key="result.objectID" :search-result="result" />
+    <HatebuSearchListItem v-for="markdown in markdowns" :key="markdown.searchResult.objectID" :search-result="markdown.searchResult" :content="markdown.content" />
+    <template v-if="isEmpty">
+      <HatebuSearchEmptyResult />
+    </template>
   </div>
 </template>
 
@@ -9,15 +12,20 @@ import Vue from 'vue'
 import store from '@/store'
 import { SearchResult } from '@/store/modules/algolia/algolia'
 import HatebuSearchListItem from '@/components/hatebu-search/molecules/HatebuSearchListItem.vue'
+import HatebuSearchEmptyResult from '@/components/hatebu-search/molecules/HatebuSearchEmptyResult.vue'
 
 export default Vue.extend({
   name: 'HatebuSearchList',
   components: {
-    HatebuSearchListItem
+    HatebuSearchListItem,
+    HatebuSearchEmptyResult
   },
   computed: {
-    searchResults(): SearchResult[] {
-      return store.getters['algolia/searchResults']
+    markdowns() {
+      return store.getters['algolia/markdowns']
+    },
+    isEmpty(): Boolean {
+      return store.getters['algolia/isEmpty']
     }
   }
 })

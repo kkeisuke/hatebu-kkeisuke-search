@@ -1,8 +1,12 @@
 <template>
   <Card v-if="markdown" class="HatebuSearchListItem">
-    <h3 slot="title">{{ searchResult.objectID }}</h3>
-    <IconLink slot="extra" :to="`${blogURL}/posts/${searchResult.objectID}`" class="extra" type="md-browsers" />
-    <IconLink slot="extra" :to="`${githubURL}/blob/master/${searchResult.path}`" class="extra" type="logo-github" />
+    <template v-slot:title>
+      <h3>{{ searchResult.objectID }}</h3>
+    </template>
+    <template v-slot:extra>
+      <IconLink :to="`${blogURL}/posts/${searchResult.objectID}`" class="extra" type="md-browsers" />
+      <IconLink :to="`${githubURL}/blob/master/${searchResult.path}`" class="extra" type="logo-github" />
+    </template>
     <div class="markdown" v-html="markdown"></div>
   </Card>
 </template>
@@ -25,6 +29,10 @@ export default Vue.extend({
       type: Object as PropType<SearchResult>,
       required: true,
       default: () => getSearchResultDefault()
+    },
+    content: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -35,8 +43,7 @@ export default Vue.extend({
       return process.env.VUE_APP_GITHUB_URL
     },
     markdown(): string {
-      const content = store.getters['algolia/parseRawData'](store.getters['hatebuSearch/freeword'], this.searchResult)
-      return markdown(content)
+      return markdown(this.content)
     }
   }
 })

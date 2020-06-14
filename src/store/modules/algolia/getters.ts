@@ -1,5 +1,6 @@
 import { Getters } from 'vuex'
 import { AlgoliaState, AlgoliaGetter, SearchResult } from './algolia'
+import { markdown } from '@/plugins/markdown'
 
 const getters: Getters<AlgoliaState, AlgoliaGetter> = {
   searchResults({ searchResults }) {
@@ -43,6 +44,19 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
       // 複数の段落をまとめて返す
       return contents.join('\n\n')
     }
+  },
+  markdowns(_, { searchResults, parseRawData }, __, rootGetters) {
+    return searchResults
+      .map(searchResult => {
+        return {
+          searchResult,
+          content: parseRawData(rootGetters['hatebuSearch/freeword'], searchResult)
+        }
+      })
+      .filter(md => Boolean(md.content))
+  },
+  isEmpty(_, { searchResults, markdowns }) {
+    return !!searchResults.length && !markdowns.length
   }
 }
 

@@ -5,11 +5,15 @@ export interface AlgoliaState {
 export interface AlgoliaGetter {
   searchResults: SearchResult[]
   parseRawData: (freeword: string, searchResult: SearchResult) => string
+  markdowns: { searchResult: SearchResult; content: string }[]
+  isEmpty: boolean
 }
 
 export interface RootAlgoliaGetter {
   'algolia/searchResults': AlgoliaGetter['searchResults']
   'algolia/parseRawData': AlgoliaGetter['parseRawData']
+  'algolia/markdowns': AlgoliaGetter['markdowns']
+  'algolia/isEmpty': AlgoliaGetter['isEmpty']
 }
 
 export interface AlgoliaMutation {
