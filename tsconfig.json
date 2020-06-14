@@ -26,6 +26,9 @@
       "scripthost"
     ]
   },
+  "files": [
+    "src/store/d.ts/index.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
