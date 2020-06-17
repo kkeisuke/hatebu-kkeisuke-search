@@ -13,7 +13,7 @@ const actions: Actions<AlgoliaState, AlgoliaAction, AlgoliaGetter, AlgoliaMutati
       const data = await searchAlgolia(query.trim())
       commit('SET_SEARCH_RESULTS', data)
     } catch (error) {
-      throw new Error("error algolia api request")
+      throw new Error('error algolia api request')
     } finally {
       commit('SET_IS_SEARCHED', true)
     }
