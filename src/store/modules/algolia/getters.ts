@@ -55,8 +55,8 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
       })
       .filter(md => Boolean(md.content))
   },
-  isEmpty(_, { searchResults, markdowns }) {
-    return !!searchResults.length && !markdowns.length
+  isEmpty({ isSearched }, { searchResults, markdowns }) {
+    return isSearched && (!searchResults.length || !markdowns.length)
   }
 }
 

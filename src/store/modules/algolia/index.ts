@@ -5,7 +5,8 @@ import getters from './getters'
 import { AlgoliaState } from './algolia'
 
 const state: AlgoliaState = {
-  searchResults: []
+  searchResults: [],
+  isSearched: false
 }
 
 export default {

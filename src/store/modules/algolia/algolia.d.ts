@@ -1,5 +1,6 @@
 export interface AlgoliaState {
   searchResults: SearchResult[]
+  isSearched: boolean
 }
 
 export interface AlgoliaGetter {
@@ -18,6 +19,7 @@ export interface RootAlgoliaGetter {
 
 export interface AlgoliaMutation {
   SET_SEARCH_RESULTS: SearchResult[]
+  SET_IS_SEARCHED: boolean
 }
 
 export interface AlgoliaAction {

@@ -20,8 +20,9 @@ export const useHatebuSearch = (refs: SetupContext['refs']) => {
       await store.dispatch('algolia/search', store.getters['hatebuSearch/freeword'])
     } catch (error) {
       LoadingBar.error()
+    } finally {
+      LoadingBar.finish()
     }
-    LoadingBar.finish()
   }
 
   return {

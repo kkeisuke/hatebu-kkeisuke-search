@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <div>該当のブックマークは有りませんでした。</div>
+    <div>該当するブックマークはありません</div>
   </Card>
 </template>
 
