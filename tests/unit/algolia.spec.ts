@@ -5,12 +5,15 @@ describe('store algolia', () => {
   const freeword = 'vue'
 
   beforeAll(() => {
+    store.dispatch('hatebuSearch/setFreeword', freeword)
     return store.dispatch('algolia/search', freeword)
   })
 
   it('search', () => {
     const result = store.getters['algolia/searchResults']
+    const isEmpty = store.getters['algolia/isEmpty']
     expect(result.length).toEqual(hitsPerPage)
+    expect(isEmpty).not.toBeTruthy()
     expect(result[0].objectID).toBeTruthy()
     expect(result[0].path).toBeTruthy()
     expect(result[0].content).toBeTruthy()
@@ -27,6 +30,8 @@ describe('store algolia', () => {
   it('search empty freeword', async () => {
     await store.dispatch('algolia/search', ' ')
     const result = store.getters['algolia/searchResults']
+    const isEmpty = store.getters['algolia/isEmpty']
     expect(result.length).toEqual(0)
+    expect(isEmpty).toBeTruthy()
   })
 })

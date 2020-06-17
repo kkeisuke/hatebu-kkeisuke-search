@@ -1,5 +1,5 @@
 <template>
-  <Card>
+  <Card class="HatebuSearchEmptyResult">
     <div>該当するブックマークはありません</div>
   </Card>
 </template>

@@ -19,6 +19,7 @@ describe('search', () => {
     cy.get('.HatebuSearchListItem')
       .first()
       .contains(regexp)
+    cy.get('.HatebuSearchEmptyResult').should('have.length', 0)
   })
 
   it('input empty freeword and search', () => {
@@ -26,5 +27,6 @@ describe('search', () => {
 
     cy.search(freeword)
     cy.get('.HatebuSearchListItem').should('have.length', 0)
+    cy.get('.HatebuSearchEmptyResult').should('have.length', 1)
   })
 })
