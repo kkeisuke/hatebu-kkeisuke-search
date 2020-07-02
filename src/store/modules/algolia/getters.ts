@@ -10,10 +10,7 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
     return (freeword: string, searchResult: SearchResult) => {
       if (!freeword.trim()) return ''
       // 複数のフリーワード
-      const freewords = freeword
-        .trim()
-        .replace('　', ' ')
-        .split(' ')
+      const freewords = freeword.trim().replace('　', ' ').split(' ')
 
       const regExp = new RegExp(`${freewords.join('|')}`, 'ig')
       const replaced = '`$&`'
@@ -21,13 +18,13 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
       // マークダウンを段落ごとに処理
       const contents = searchResult.content
         .split('\n\n')
-        .filter(paragraph => {
+        .filter((paragraph) => {
           // 段落に1つでもフリーワードが含まれているか？
-          return freewords.some(target => {
+          return freewords.some((target) => {
             return paragraph.toLowerCase().includes(target.toLowerCase())
           })
         })
-        .map(paragraph => {
+        .map((paragraph) => {
           // 段落を行ごとに分割して、含まれているフリーワードを code タグに置換
           const lines = paragraph.trim().split('\n')
           // タイトル
@@ -47,13 +44,13 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
   },
   markdowns(_, { searchResults, parseRawData }, __, rootGetters) {
     return searchResults
-      .map(searchResult => {
+      .map((searchResult) => {
         return {
           searchResult,
           content: parseRawData(rootGetters['hatebuSearch/freeword'], searchResult)
         }
       })
-      .filter(md => Boolean(md.content))
+      .filter((md) => Boolean(md.content))
   },
   isEmpty({ isSearched }, { searchResults, markdowns }) {
     return isSearched && (!searchResults.length || !markdowns.length)

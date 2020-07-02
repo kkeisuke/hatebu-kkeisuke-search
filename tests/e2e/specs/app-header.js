@@ -10,7 +10,7 @@ describe('app header viewport check', () => {
 
     cy.get('.menuButton').should('be.visible')
     cy.get('.IconLinks').should('not.be.visible')
-    cy.get('#Logo').then($els => {
+    cy.get('#Logo').then(($els) => {
       expect(getPseudoElementStyle($els[0], 'before', 'content')).to.eq('"kkeisuke\'s はてブ検索"')
     })
   })
@@ -20,7 +20,7 @@ describe('app header viewport check', () => {
 
     cy.get('.menuButton').should('not.be.visible')
     cy.get('.IconLinks').should('be.visible')
-    cy.get('#Logo').then($els => {
+    cy.get('#Logo').then(($els) => {
       expect(getPseudoElementStyle($els[0], 'before', 'content')).to.eq('"kkeisuke\'s はてなブックマーク検索"')
     })
   })

@@ -12,18 +12,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, ref, onMounted } from '@vue/composition-api'
 import AlgoliaLogo from '@/components/common/atoms/AlgoliaLogo.vue'
-import { useHatebuSearch } from '../use/useHatebuSearch'
+import { useHatebuSearch } from '@/components/hatebu-search/use/useHatebuSearch'
+import { Input } from 'view-design'
 
 export default defineComponent({
   name: 'HatebuSearchForm',
   components: {
     AlgoliaLogo
   },
-  setup(initProps, setupContext) {
+  setup() {
+    const searchBox = ref<Input>()
+
+    onMounted(() => {
+      searchBox.value?.focus()
+    })
+
     return {
-      hatebuSearch: useHatebuSearch(setupContext.refs)
+      searchBox,
+      hatebuSearch: useHatebuSearch()
     }
   }
 })
@@ -33,7 +41,7 @@ export default defineComponent({
 @import '~@/styles/iview-variables.less';
 
 .HatebuSearchForm {
-  /deep/ #searchBox {
+  ::v-deep #searchBox {
     @media screen and (max-width: @screen-sm-max) {
       font-size: 16px;
     }

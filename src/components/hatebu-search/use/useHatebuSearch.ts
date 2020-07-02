@@ -1,15 +1,11 @@
-import { reactive, onMounted, SetupContext } from '@vue/composition-api'
+import { reactive } from '@vue/composition-api'
 import { HatebuSearchParam } from '@/store/modules/hatebu-search/hatebu-search'
 import store from '@/store'
-import { LoadingBar, Input } from 'view-design'
+import { LoadingBar } from 'view-design'
 
-export const useHatebuSearch = (refs: SetupContext['refs']) => {
+export const useHatebuSearch = () => {
   const param: HatebuSearchParam = reactive({
     freeword: ''
-  })
-
-  onMounted(() => {
-    ;(refs.searchBox as Input)?.focus()
   })
 
   async function search() {

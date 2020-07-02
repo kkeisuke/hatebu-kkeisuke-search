@@ -4,7 +4,9 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        javascriptEnabled: true // https://github.com/ant-design/ant-motion/issues/44#issuecomment-407498459
+        lessOptions: {
+          javascriptEnabled: true // https://github.com/ant-design/ant-motion/issues/44#issuecomment-625034268
+        }
       }
     }
   }

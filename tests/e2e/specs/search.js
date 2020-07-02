@@ -5,10 +5,8 @@ describe('search', () => {
     cy.visit('/')
   })
 
-  Cypress.Commands.add('search', freeword => {
-    cy.get('#searchBox')
-      .clear()
-      .type(`${freeword}{enter}`)
+  Cypress.Commands.add('search', (freeword) => {
+    cy.get('#searchBox').clear().type(`${freeword}{enter}`)
   })
 
   it('input freeword and search', () => {
@@ -16,9 +14,7 @@ describe('search', () => {
     const regexp = new RegExp(freeword, 'i')
 
     cy.search(freeword)
-    cy.get('.HatebuSearchListItem')
-      .first()
-      .contains(regexp)
+    cy.get('.HatebuSearchListItem').first().contains(regexp)
     cy.get('.HatebuSearchEmptyResult').should('have.length', 0)
   })
 
