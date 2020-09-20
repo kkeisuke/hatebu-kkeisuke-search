@@ -5,6 +5,7 @@ import DOMPurify from 'dompurify'
 DOMPurify.addHook('afterSanitizeAttributes', function (node) {
   if ('target' in node) {
     ;(node as HTMLElement).setAttribute('target', '_blank')
+    ;(node as HTMLElement).setAttribute('rel', 'noopener noreferrer')
   }
 })
 
