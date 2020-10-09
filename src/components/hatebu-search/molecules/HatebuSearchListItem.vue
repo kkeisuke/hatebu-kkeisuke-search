@@ -1,9 +1,9 @@
 <template>
   <Card v-if="markdown" class="HatebuSearchListItem">
-    <template v-slot:title>
+    <template #title>
       <h3>{{ searchResult.objectID }}</h3>
     </template>
-    <template v-slot:extra>
+    <template #extra>
       <IconLink :to="`${blogURL}/posts/${searchResult.objectID}`" class="extra" type="md-browsers" />
       <IconLink :to="`${githubURL}/blob/master/${searchResult.path}`" class="extra" type="logo-github" />
     </template>
