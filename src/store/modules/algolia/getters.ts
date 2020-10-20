@@ -30,7 +30,11 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
           // タイトル
           lines[0] = lines[0].replace(regExp, replaced)
           // URL
-          lines[1] = decodeURIComponent(lines[1])
+          try {
+            lines[1] = decodeURIComponent(lines[1])
+          } catch (error) {
+            // そのまま
+          }
           // コメント
           if (lines[3]) {
             lines[3] = lines[3].replace(regExp, replaced)
