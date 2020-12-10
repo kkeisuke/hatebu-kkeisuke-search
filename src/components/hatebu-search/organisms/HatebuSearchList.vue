@@ -10,7 +10,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import store from '@/store'
-import { SearchResult } from '@/store/modules/algolia/algolia'
 import HatebuSearchListItem from '@/components/hatebu-search/molecules/HatebuSearchListItem.vue'
 import HatebuSearchEmptyResult from '@/components/hatebu-search/molecules/HatebuSearchEmptyResult.vue'
 

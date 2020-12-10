@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import store from '@/store'
 import { markdown } from '@/plugins/markdown'
 import { SearchResult } from '@/store/modules/algolia/algolia'
 import { getSearchResultDefault } from '@/store/modules/algolia/defaults'
