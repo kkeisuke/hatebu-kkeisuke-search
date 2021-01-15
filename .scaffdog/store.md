@@ -1,23 +1,23 @@
 ---
 name: 'store'
-description: 'Generate store files'
-message: 'Please enter directory name.'
+questions:
+  name: 'Please enter directory name.'
 root: './src/store/modules'
 output: '/*'
 ignore: []
 ---
 
-# `{{ input }}/index.ts`
+# `{{ inputs.name }}/index.ts`
 
 ```javascript
 import actions from './actions'
 import mutations from './mutations'
 import getters from './getters'
 
-import { {{ input | pascal }}State } from './{{ input }}'
+import { {{ inputs.name | pascal }}State } from './{{ inputs.name }}'
 import { getStateDefault } from './defaults'
 
-const state: {{ input | pascal }}State = {
+const state: {{ inputs.name | pascal }}State = {
   ...getStateDefault()
 }
 
@@ -31,78 +31,78 @@ export default {
 
 ```
 
-# `{{ input }}/actions.ts`
+# `{{ inputs.name }}/actions.ts`
 
 ```javascript
 import { Actions } from 'vuex'
 import { api } from '@/plugins/api'
-import { {{ input | pascal }}State, {{ input | pascal }}Action, {{ input | pascal }}Getter, {{ input | pascal }}Mutation } from './{{ input }}'
+import { {{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Action, {{ inputs.name | pascal }}Getter, {{ inputs.name | pascal }}Mutation } from './{{ inputs.name }}'
 
-const actions: Actions<{{ input | pascal }}State, {{ input | pascal }}Action, {{ input | pascal }}Getter, {{ input | pascal }}Mutation> = {
+const actions: Actions<{{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Action, {{ inputs.name | pascal }}Getter, {{ inputs.name | pascal }}Mutation> = {
 }
 
 export default actions
 
 ```
 
-# `{{ input }}/mutations.ts`
+# `{{ inputs.name }}/mutations.ts`
 
 ```javascript
 import { Mutations } from 'vuex'
-import { {{ input | pascal }}State, {{ input | pascal }}Mutation } from './{{ input }}'
+import { {{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Mutation } from './{{ inputs.name }}'
 import { getStateDefault } from './defaults'
 
-const mutations: Mutations<{{ input | pascal }}State, {{ input | pascal }}Mutation> = {
+const mutations: Mutations<{{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Mutation> = {
 }
 
 export default mutations
 
 ```
 
-# `{{ input }}/getters.ts`
+# `{{ inputs.name }}/getters.ts`
 
 ```javascript
 import { Getters } from 'vuex'
-import { {{ input | pascal }}State, {{ input | pascal }}Getter } from './{{ input }}'
+import { {{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Getter } from './{{ inputs.name }}'
 
-const getters: Getters<{{ input | pascal }}State, {{ input | pascal }}Getter> = {
+const getters: Getters<{{ inputs.name | pascal }}State, {{ inputs.name | pascal }}Getter> = {
 }
 
 export default getters
 
 ```
 
-# `{{ input }}/defaults.ts`
+# `{{ inputs.name }}/defaults.ts`
 
 ```javascript
-import { {{ input | pascal }}State } from './{{ input }}'
+import { {{ inputs.name | pascal }}State } from './{{ inputs.name }}'
 
-export function getStateDefault(): {{ input | pascal }}State {
+export function getStateDefault(): {{ inputs.name | pascal }}State {
   return {
   }
 }
 
 ```
 
-# `{{ input }}/{{ input }}.d.ts`
+# `{{ inputs.name }}/{{ inputs.name }}.d.ts`
 
 ```javascript
-export interface {{ input | pascal }}State {
+export interface {{ inputs.name | pascal }}State {
 }
 
-export interface {{ input | pascal }}Getter {
+export interface {{ inputs.name | pascal }}Getter {
 }
 
-export interface Root{{ input | pascal }}Getter {
+export interface Root{{ inputs.name | pascal }}Getter {
 }
 
-export interface {{ input | pascal }}Mutation {
+export interface {{ inputs.name | pascal }}Mutation {
 }
 
-export interface {{ input | pascal }}Action {
+export interface {{ inputs.name | pascal }}Action {
 }
 
-export interface Root{{ input | pascal }}Action {
+export interface Root{{ inputs.name | pascal }}Action {
 }
 
 ```
