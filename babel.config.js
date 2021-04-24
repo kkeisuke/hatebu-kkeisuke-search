@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@babel/core').TransformOptions} */
+const config = {
   presets: ['@vue/cli-plugin-babel/preset'],
   plugins: [
     [
@@ -10,3 +11,5 @@ module.exports = {
     ]
   ]
 }
+
+module.exports = config

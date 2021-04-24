@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@vue/cli-service').ProjectOptions} */
+const config = {
   productionSourceMap: false,
   // https://cli.vuejs.org/guide/css.html#css-modules
   css: {
@@ -11,3 +12,5 @@ module.exports = {
     }
   }
 }
+
+module.exports = config

@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('@typescript-eslint/experimental-utils').TSESLint.Linter.Config} */
+const config = {
   root: true,
   env: {
     node: true
@@ -36,3 +37,5 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'development' ? 'off' : 'error' // ローカル環境のみ off
   }
 }
+
+module.exports = config
