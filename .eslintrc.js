@@ -33,6 +33,7 @@ const config = {
     'vue/v-on-function-call': 'error',
     'vue/no-parsing-error': ['error', { 'x-invalid-end-tag': false }],
     'vue/no-v-html': 'off', // 仕方なく
+    'vue/multi-word-component-names': 'off', // 仕方なく
     'no-debugger': process.env.NODE_ENV === 'development' ? 'off' : 'error', // ローカル環境のみ off
     'no-console': process.env.NODE_ENV === 'development' ? 'off' : 'error' // ローカル環境のみ off
   }
