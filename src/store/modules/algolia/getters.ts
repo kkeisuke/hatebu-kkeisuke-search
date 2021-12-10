@@ -1,6 +1,5 @@
 import { Getters } from 'vuex'
 import { AlgoliaState, AlgoliaGetter, SearchResult } from './algolia'
-import { markdown } from '@/plugins/markdown'
 
 const getters: Getters<AlgoliaState, AlgoliaGetter> = {
   searchResults({ searchResults }) {
@@ -28,7 +27,7 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
           // 段落を行ごとに分割して、含まれているフリーワードを code タグに置換
           const lines = paragraph.trim().split('\n')
           // タイトル
-          lines[0] = lines[0].replace(regExp, replaced)
+          lines[0] = lines[0].replace(regExp, replaced).replaceAll('<', '&lt;').replaceAll('>', '&gt;')
           // URL
           try {
             lines[1] = decodeURIComponent(lines[1])
