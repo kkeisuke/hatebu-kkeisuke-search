@@ -12,20 +12,20 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import { markdown } from '@/plugins/markdown'
 import { SearchResult } from '@/store/modules/algolia/algolia'
 import { getSearchResultDefault } from '@/store/modules/algolia/defaults'
 import IconLink from '@/components/common/atoms/IconLink.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'HatebuSearchListItem',
   components: {
     IconLink
   },
   props: {
     searchResult: {
-      type: Object as PropType<SearchResult>,
+      type: Object as () => SearchResult,
       required: true,
       default: () => getSearchResultDefault()
     },

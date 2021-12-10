@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import HatebuSearchForm from '@/components/hatebu-search/organisms/HatebuSearchForm.vue'
 import HatebuSearchList from '@/components/hatebu-search/organisms/HatebuSearchList.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'HatebuSearch',
   components: {
     HatebuSearchForm,

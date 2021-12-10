@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import Logo from '@/components/app-header/atoms/Logo.vue'
 import SubMenu from '@/components/app-header/organisms/SubMenu.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'AppHeader',
   components: {
     Logo,

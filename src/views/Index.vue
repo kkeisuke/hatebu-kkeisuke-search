@@ -5,10 +5,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import HatebuSearch from '@/components/hatebu-search/HatebuSearch.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Index',
   components: {
     HatebuSearch

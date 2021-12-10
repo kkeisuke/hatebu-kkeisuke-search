@@ -8,12 +8,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import store from '@/store'
 import HatebuSearchListItem from '@/components/hatebu-search/molecules/HatebuSearchListItem.vue'
 import HatebuSearchEmptyResult from '@/components/hatebu-search/molecules/HatebuSearchEmptyResult.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'HatebuSearchList',
   components: {
     HatebuSearchListItem,

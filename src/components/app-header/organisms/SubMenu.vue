@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@vue/composition-api'
 import IconLinks from '@/components/app-header/molecules/IconLinks.vue'
 import SubSideMenu from '@/components/app-header/molecules/SubSideMenu.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'SubMenu',
   components: {
     IconLinks,
