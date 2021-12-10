@@ -1,4 +1,4 @@
-import marked from 'marked'
+import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 
 // https://github.com/cure53/DOMPurify/blob/master/demos/hooks-target-blank-demo.html
