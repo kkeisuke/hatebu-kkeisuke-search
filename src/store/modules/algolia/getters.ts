@@ -53,6 +53,15 @@ const getters: Getters<AlgoliaState, AlgoliaGetter> = {
           content: parseRawData(rootGetters['hatebuSearch/freeword'], searchResult)
         }
       })
+      .sort((pre, next) => {
+        // 日付 降順
+        if (pre.searchResult.objectID < next.searchResult.objectID) {
+          return 1
+        } else if (pre.searchResult.objectID > next.searchResult.objectID) {
+          return -1
+        }
+        return 0
+      })
       .filter((md) => Boolean(md.content))
   },
   isEmpty({ isSearched }, { searchResults, markdowns }) {
